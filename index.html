@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Rezepte – Impressum & Datenschutz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E85D3A;
+            --primary-light: #FF9A76;
+            --bg: #FAFAF8;
+            --card: #FFFFFF;
+            --text: #1A1A1A;
+            --text-light: #6B6B6B;
+            --border: #E8E8E4;
+            --accent-green: #2ECC71;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            padding: 3rem 1.5rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.08) 0%, transparent 50%);
+        }
+        .hero-emoji { font-size: 3rem; margin-bottom: 0.5rem; }
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        .hero p { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
+
+        /* Nav tabs */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1.25rem 1rem;
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            z-index: 10;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav a {
+            text-decoration: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            background: var(--card);
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .nav a:hover, .nav a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Content */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .section {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 1.25rem 0 0.5rem;
+            color: var(--text);
+        }
+        p { margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--text-light); }
+        ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+        li { margin-bottom: 0.35rem; font-size: 0.95rem; color: var(--text-light); }
+        a { color: var(--primary); }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(232,93,58,0.06), rgba(255,154,118,0.06));
+            border: 1px solid rgba(232,93,58,0.15);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-top: 0.5rem;
+        }
+        .contact-box p { margin-bottom: 0.25rem; color: var(--text); }
+        .contact-label { font-weight: 600; color: var(--text); }
+
+        .badge {
+            display: inline-block;
+            background: rgba(46,204,113,0.1);
+            color: var(--accent-green);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6rem; }
+            .card { padding: 1.25rem; }
+            .nav a { padding: 0.4rem 0.9rem; font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="hero-emoji">👨‍🍳</div>
+    <h1>Meine Rezepte</h1>
+    <p>Impressum & Datenschutzerklärung</p>
+</div>
+
+<div class="nav">
+    <a href="#impressum" class="active" onclick="showSection('impressum', this)">Impressum</a>
+    <a href="#datenschutz" onclick="showSection('datenschutz', this)">Datenschutz</a>
+</div>
+
+<div class="container">
+
+    <!-- IMPRESSUM -->
+    <div id="impressum" class="section active">
+        <div class="card">
+            <h2>Impressum</h2>
+            <p>Angaben gemäß § 5 TMG</p>
+
+            <div class="contact-box">
+                <p><span class="contact-label">Verantwortlich:</span></p>
+                <p>Timo Schröder</p>
+                <p>Bahnhofstraße 25</p>
+                <p>61476 Kronberg im Taunus</p>
+                <p>Deutschland</p>
+            </div>
+
+            <h3>Kontakt</h3>
+            <p>E-Mail: <a href="mailto:timo-studios-app@web.de">timo-studios-app@web.de</a></p>
+
+            <h3>Haftung für Inhalte</h3>
+            <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+            <h3>Haftung für Links</h3>
+            <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+            <h3>Urheberrecht</h3>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+        </div>
+    </div>
+
+    <!-- DATENSCHUTZ -->
+    <div id="datenschutz" class="section">
+        <div class="card">
+            <h2>Datenschutzerklärung</h2>
+            <div class="badge">DSGVO-konform</div>
+
+            <h3>1. Verantwortlicher</h3>
+            <p>Timo Schröder<br>
+            Bahnhofstraße 25<br>
+            61476 Kronberg im Taunus<br>
+            E-Mail: <a href="mailto:timo-studios-app@web.de">timo-studios-app@web.de</a></p>
+
+            <h3>2. Übersicht der Datenverarbeitungen</h3>
+            <p>Die App „Meine Rezepte" verarbeitet personenbezogene Daten nur im minimal notwendigen Umfang. Die meisten Daten (Rezepte, Einkaufslisten, Favoriten, Einstellungen) werden <strong>ausschließlich lokal auf Ihrem Gerät</strong> gespeichert und nicht an uns oder Dritte übertragen.</p>
+
+            <h3>3. Lokal gespeicherte Daten</h3>
+            <p>Folgende Daten werden ausschließlich auf Ihrem Gerät gespeichert:</p>
+            <ul>
+                <li>Rezepte (eigene und importierte)</li>
+                <li>Favoriten und Notizen</li>
+                <li>Einkaufslisten</li>
+                <li>Wochenplaner-Einträge</li>
+                <li>App-Einstellungen (z.B. Dark Mode)</li>
+            </ul>
+            <p>Diese Daten werden <strong>nicht</strong> an Server übertragen. Bei Deinstallation der App werden alle lokalen Daten gelöscht.</p>
+
+            <h3>4. Kamerazugriff</h3>
+            <p>Die App nutzt die Kamera Ihres Geräts für folgende Funktionen:</p>
+            <ul>
+                <li>Rezepte per Foto scannen (OCR-Texterkennung)</li>
+                <li>Kassenzettel scannen</li>
+                <li>Einkaufslisten scannen</li>
+            </ul>
+            <p>Die Texterkennung erfolgt lokal auf dem Gerät mittels Google ML Kit. Fotos werden <strong>nicht</strong> an externe Server übertragen oder gespeichert.</p>
+
+            <h3>5. Werbung (Google AdMob)</h3>
+            <p>Diese App nutzt Google AdMob zur Einblendung von Werbeanzeigen. Dabei werden folgende Daten durch Google verarbeitet:</p>
+            <ul>
+                <li>Werbe-ID Ihres Geräts</li>
+                <li>IP-Adresse (gekürzt)</li>
+                <li>Geräte- und App-Informationen</li>
+                <li>Interaktionsdaten mit Anzeigen</li>
+            </ul>
+            <p>Rechtsgrundlage ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO, die über den Consent-Dialog beim ersten Start der App erteilt wird.</p>
+            <p>Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.<br>
+            Datenschutzerklärung: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a><br>
+            Opt-Out: <a href="https://adssettings.google.com" target="_blank">https://adssettings.google.com</a></p>
+
+            <h3>6. Google ML Kit (Texterkennung)</h3>
+            <p>Für die Texterkennung (OCR) wird Google ML Kit verwendet. Die Verarbeitung erfolgt <strong>vollständig lokal</strong> auf Ihrem Gerät. Es werden keine Bild- oder Textdaten an Google-Server übermittelt.</p>
+
+            <h3>7. Ihre Rechte</h3>
+            <p>Sie haben gemäß DSGVO folgende Rechte:</p>
+            <ul>
+                <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) – Welche Daten verarbeitet werden</li>
+                <li><strong>Berichtigungsrecht</strong> (Art. 16 DSGVO) – Korrektur unrichtiger Daten</li>
+                <li><strong>Löschungsrecht</strong> (Art. 17 DSGVO) – Löschung Ihrer Daten</li>
+                <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) – Widerspruch gegen Datenverarbeitung</li>
+                <li><strong>Widerrufsrecht</strong> (Art. 7 Abs. 3 DSGVO) – Widerruf erteilter Einwilligungen</li>
+                <li><strong>Beschwerderecht</strong> – Bei einer Aufsichtsbehörde (z.B. Hessischer Beauftragter für Datenschutz)</li>
+            </ul>
+
+            <h3>8. Einwilligung widerrufen</h3>
+            <p>Sie können Ihre Einwilligung zur personalisierten Werbung jederzeit widerrufen:</p>
+            <ul>
+                <li><strong>In der App:</strong> Profil-Tab → „Werbe-Einwilligung widerrufen"</li>
+                <li><strong>Geräteeinstellungen:</strong> Werbe-ID zurücksetzen (Android: Einstellungen → Google → Werbung)</li>
+                <li><strong>Online:</strong> <a href="https://adssettings.google.com" target="_blank">Google Anzeigeneinstellungen</a></li>
+            </ul>
+            <p>Nach dem Widerruf werden keine personalisierten Anzeigen mehr ausgespielt. Es können weiterhin nicht-personalisierte Anzeigen erscheinen.</p>
+
+            <h3>9. Änderungen</h3>
+            <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänderte Rechtslagen oder Änderungen der App anzupassen. Die aktuelle Fassung finden Sie stets auf dieser Seite.</p>
+
+            <p><strong>Stand: Februar 2026</strong></p>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>© 2026 Timo Schröder – Meine Rezepte App</p>
+    <p style="margin-top: 0.5rem;">
+        <a href="#impressum" onclick="showSection('impressum', document.querySelector('.nav a'))">Impressum</a> · 
+        <a href="#datenschutz" onclick="showSection('datenschutz', document.querySelectorAll('.nav a')[1])">Datenschutz</a>
+    </p>
+</div>
+
+<script>
+function showSection(id, el) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (el) el.classList.add('active');
+}
+
+// Handle hash navigation
+if (window.location.hash === '#datenschutz') {
+    showSection('datenschutz', document.querySelectorAll('.nav a')[1]);
+}
+</script>
+
+</body>
+</html>
